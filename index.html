@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MMORPG Кликер</title>
   <meta name="description" content="Веб-игра MMORPG-кликер с системой классов, улучшений, экспедиций, подземелий и обширной коллекцией предметов">
-  
-  <!-- Активация режима локального хранилища для GitHub Pages -->
+
   <script>
     localStorage.setItem('use_local_storage', 'true');
     console.log('GitHub Pages режим: данные сохраняются в localStorage браузера');
@@ -49,12 +48,15 @@
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
           loadingScreen.style.opacity = '0';
-          setTimeout(() => loadingScreen.style.display = 'none', 500);
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            document.getElementById('root').style.display = 'block';
+          }, 500);
         }
       }, 500);
     });
   </script>
-  
+
   <style>
     #loading-screen {
       position: fixed;
@@ -99,6 +101,10 @@
       font-size: 24px;
       margin-bottom: 20px;
     }
+
+    #root {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -109,7 +115,9 @@
     </div>
     <div id="progress-text">Загрузка...</div>
   </div>
-  
+
   <div id="root"></div>
+  <script type="module" src="./assets/index-CLLUV4AW.js"></script>
+  <link rel="stylesheet" href="./assets/index-Cr1FwoUH.css">
 </body>
 </html>
