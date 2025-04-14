@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,53 +9,70 @@
   
   <!-- Активация режима локального хранилища для GitHub Pages -->
   <script>
-    // Включаем режим локального хранилища
     localStorage.setItem('use_local_storage', 'true');
     console.log('GitHub Pages режим: данные сохраняются в localStorage браузера');
     
-    // Функция для проверки наличия данных игры
-    function checkGameData() {
-      const gameData = localStorage.getItem('mmorpg_clicker_game_state');
-      if (gameData) {
-        console.log('Обнаружены сохраненные данные игры');
-      } else {
-        console.log('Сохраненные данные не найдены, будет создана новая игра');
-      }
-    }
+    let startTime = Date.now();
+    let loadingProgress = 0;
     
-    // Проверяем данные при загрузке страницы
-    window.addEventListener('DOMContentLoaded', checkGameData);
+    function updateProgress() {
+      loadingProgress += Math.random() * 15;
+      if (loadingProgress > 95) loadingProgress = 95;
+      
+      const progressBar = document.getElementById('progress-bar');
+      const progressText = document.getElementById('progress-text');
+      const timeElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+      
+      if (progressBar) progressBar.style.width = loadingProgress + '%';
+      if (progressText) progressText.textContent = `Загружено ${Math.round(loadingProgress)}% (${timeElapsed} сек)`;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setInterval(updateProgress, 500);
+    });
+
+    window.addEventListener('load', () => {
+      const progressBar = document.getElementById('progress-bar');
+      const progressText = document.getElementById('progress-text');
+      if (progressBar) progressBar.style.width = '100%';
+      if (progressText) progressText.textContent = 'Загрузка завершена!';
+    });
   </script>
   
-  <!-- Стили будут добавлены при сборке -->
-  <link rel="stylesheet" href="./assets/index.css">
+  <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .progress-bar {
+      width: 300px;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 20px auto;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #4f46e5;
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+  </style>
   
-  <!-- Font Awesome для иконок -->
+  <link rel="stylesheet" href="./assets/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div id="root">
-    <!-- Здесь будет отрендерено React-приложение -->
     <div class="loading-screen" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; background-color: #1a1a2e;">
       <h1 style="font-size: 2rem; color: #fff; margin-bottom: 1rem;">MMORPG Кликер</h1>
       <div style="border: 4px solid rgba(255, 255, 255, 0.1); border-left-color: #4f46e5; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
-      <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.7);">Загрузка игры...</p>
+      <div class="progress-bar">
+        <div id="progress-bar" class="progress-bar-fill"></div>
+      </div>
+      <p id="progress-text" style="margin-top: 0.5rem; color: rgba(255, 255, 255, 0.7);">Загрузка...</p>
     </div>
   </div>
-  
-  <style>
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background-color: #1a1a2e;
-      color: #fff;
-    }
-  </style>
-  
-  <!-- Скрипты будут добавлены при сборке -->
   <script type="module" src="./assets/index.js"></script>
 </body>
 </html>
