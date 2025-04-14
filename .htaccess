@@ -1,0 +1,4 @@
+
+# Перенаправление на директорию Too
+RewriteEngine On
+RewriteRule ^$ Too/ [R=301,L]
