@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMORPG Кликер - Перенаправление</title>
-  <meta http-equiv="refresh" content="0;URL='./Too/'" />
+  <style data-vite-theme="" data-inject-first="">:root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 221 8% 97%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --ring: 20 14.3% 4.1%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 221 8% 97%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+  }</style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>MMORPG Кликер</title>
+  <meta name="description" content="Веб-игра MMORPG-кликер с системой классов, улучшений, экспедиций, подземелий и обширной коллекцией предметов">
+  <script type="module" crossorigin src="./assets/index-DfWneFlf.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Cr1FwoUH.css">
+  
   <script>
-    // Перенаправляем на правильный URL
-    window.location.href = './Too/';
+    // Активация режима локального хранилища для GitHub Pages
+    window.localStorage.setItem('use_local_storage', 'true');
+    console.log('GitHub Pages режим: данные сохраняются в localStorage браузера');
   </script>
-  <style>
-    body {
-      background-color: #0f172a;
-      color: #e2e8f0;
-      font-family: sans-serif;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      padding: 0 20px;
-    }
-    .container {
-      max-width: 600px;
-    }
-    h1 {
-      color: #38bdf8;
-    }
-    p {
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    .loader {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      border: 3px solid rgba(255,255,255,.3);
-      border-radius: 50%;
-      border-top-color: #38bdf8;
-      animation: spin 1s ease-in-out infinite;
-      margin: 20px auto;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>MMORPG Кликер</h1>
-    <div class="loader"></div>
-    <p>Загрузка игры...</p>
-    <p>Если перенаправление не работает, <a href="./Too/" style="color: #38bdf8;">нажмите здесь</a>.</p>
-  </div>
+  <div id="root"></div>
 </body>
 </html>
