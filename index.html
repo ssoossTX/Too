@@ -48,8 +48,14 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <script type="module" crossorigin src="/assets/index-DfWneFlf.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Cr1FwoUH.css">
+    <script type="module" crossorigin src="./assets/index-DfWneFlf.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cr1FwoUH.css">
+  
+    <script>
+      // Активация режима локального хранилища для GitHub Pages
+      window.localStorage.setItem('use_local_storage', 'true');
+      console.log('GitHub Pages режим: данные сохраняются в localStorage браузера');
+    </script>
   </head>
   <body>
     <div id="root"></div>
